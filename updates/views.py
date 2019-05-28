@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Update
+from . import forms
+
 # Create your views here.
 
 def index(request):
@@ -9,3 +11,8 @@ def index(request):
     #output = ', ' .join([p.title for p in latest_updates_list]) 
     #return HttpResponse(output)
     return render (request,'updates/index.html', context=date_dict)
+
+def form_name_view(request):
+    form = forms.FormName()
+    return render(request,'updates/add-update.html', {'form':form})
+

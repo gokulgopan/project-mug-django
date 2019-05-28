@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.views.generic import RedirectView
 from django.conf.urls.static import static
 from django.conf import settings
-from updates import views 
+from updates import views
 
 
 urlpatterns = [

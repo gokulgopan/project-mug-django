@@ -19,11 +19,13 @@ from django.views.generic import RedirectView
 from django.conf.urls.static import static
 from django.conf import settings
 from updates import views
+from updates.views import update_add
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('updates.urls')),
+    path('add', update_add),
     # path('', views.index, name='index')
     #  path('', RedirectView.as_view(url='/updates/', permanent=True)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

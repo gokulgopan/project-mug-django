@@ -1,5 +1,10 @@
 from django import forms
+from .models import Update
+from . import models
 
-class FormName(forms.Form):
-    title = forms.CharField()
-    body = forms.CharField()
+class UpdateForm(forms.Form):
+    class meta:
+        model = Update
+        fields = ['title','body']
+
+form = UpdateForm()

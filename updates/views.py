@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Update
 from . import forms
+from .forms import UpdateForm
 
 # Create your views here.
 
@@ -12,7 +13,13 @@ def index(request):
     #return HttpResponse(output)
     return render (request,'updates/index.html', context=date_dict)
 
-def form_name_view(request):
-    form = forms.FormName()
-    return render(request,'updates/add-update.html', {'form':form})
+def update_add(request):
+    form = UpdateForm()
+    #if form.is_valid():
+    #    form.save()
+    return render(request, 'updates/add-update.html', {'form': form})
 
+def update_detail(request, id):
+    #return HttpResponse(id)
+    updates = Update.objects.get(id=id)
+    return render(request, 'updates/update_detail.html', {'updates':updates})

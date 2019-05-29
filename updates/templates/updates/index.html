@@ -18,7 +18,7 @@
        
         <div class="card m-1">
         <div class="card-body">
-            <h6>{{ acc.title }}</h6>
+            <h6><a href="{% url 'updates:detail' id=acc.id %}">{{ acc.title }}</a></h6>
             <p>{{ acc.body }}</p>
             <span>{{acc.date_pub}}</span>
         </div>

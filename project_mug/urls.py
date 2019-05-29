@@ -25,6 +25,7 @@ from updates.views import update_add
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('updates.urls')),
+    path('accounts/', include('accounts.urls')),
     path('add', update_add),
     # path('', views.index, name='index')
     #  path('', RedirectView.as_view(url='/updates/', permanent=True)),

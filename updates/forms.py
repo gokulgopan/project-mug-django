@@ -1,10 +1,7 @@
 from django import forms
-from .models import Update
 from . import models
 
-class UpdateForm(forms.Form):
-    class meta:
-        model = Update
+class CreateUpdate(forms.ModelForm):
+    class Meta:
+        model = models.Update
         fields = ['title','body']
-
-form = UpdateForm()

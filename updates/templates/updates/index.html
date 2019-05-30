@@ -14,6 +14,19 @@
 
         <div class="container col-md-8">
         <div class="updates-app">
+
+        <nav>
+            <ul>
+                <li>
+                    <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
+            <ul>
+        </nav>
+        <h3>Recent updates</h3>
+
         {% if access_records %}
 
         {% for acc in access_records %}

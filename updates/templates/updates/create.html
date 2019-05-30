@@ -1,0 +1,9 @@
+<div class="create-article">
+<h2> Add a new update </h2>
+<form class="site-form" action="{% url 'updates:create' %}" method="post">
+  {% csrf_token %}
+  {{ form }}
+<input type="submit" value="Create">
+</form>
+</div>
+

@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Update
 from . import forms
-from .forms import UpdateForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -13,11 +13,15 @@ def index(request):
     #return HttpResponse(output)
     return render (request,'updates/index.html', context=date_dict)
 
-def update_add(request):
-    form = UpdateForm()
-    #if form.is_valid():
-    #    form.save()
-    return render(request, 'updates/add-update.html', {'form': form})
+@login_required(login_url="/accounts/login/")
+def create_view(request):
+    if request.method == 'POST':
+        form = forms.CreateUpdate(request.POST)
+        if form.is_valid():
+            return redirect('updates:index')
+    else:
+        form = forms.CreateUpdate()
+    return render(request, 'updates/create.html', {'form':form})
 
 def update_detail(request, id):
     #return HttpResponse(id)

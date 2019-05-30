@@ -18,6 +18,9 @@ def create_view(request):
     if request.method == 'POST':
         form = forms.CreateUpdate(request.POST)
         if form.is_valid():
+            instance = form.save(commit=False)
+            instance.author = request.user
+            instance.save()
             return redirect('updates:index')
     else:
         form = forms.CreateUpdate()

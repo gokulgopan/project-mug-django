@@ -1,9 +1,17 @@
-Login
+{% extends 'updates/base.html' %}
+{% load crispy_forms_tags %}
+
+        {% block content %}
+        <div class="m-2">
+        <h4>Login</h4>
+        </div>
 <form class="site-form" action="{% url 'accounts:login' %}" method="post">
     {% csrf_token %}
-    {{ form }}
+    {{ form|crispy  }}
     {% if request.GET.next %}
         <input type="hidden" name="next" value="{{ request.GET.next }}">
     {% endif %} 
-<input type="submit" value="Login">
+<input type="submit" value="Login" class="btn btn-success">
 </form>
+
+{% endblock %}

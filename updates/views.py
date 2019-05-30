@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
-    latest_updates_list = Update.objects.order_by('-date_pub')[:5]
+    latest_updates_list = Update.objects.order_by('-date_pub')[:10]
     date_dict = {'access_records':latest_updates_list}
     #output = ', ' .join([p.title for p in latest_updates_list]) 
     #return HttpResponse(output)

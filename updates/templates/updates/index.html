@@ -2,8 +2,9 @@
         {% extends 'updates/base.html' %}
 
         {% block content %}
-        <h3>Recent updates</h3>
-
+        <div class="m-2">
+        <h4>Recent updates</h4>
+        </div>
         {% if access_records %}
 
         {% for acc in access_records %}

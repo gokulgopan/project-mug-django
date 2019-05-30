@@ -10,6 +10,7 @@ class Update(models.Model):
     date_pub = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, on_delete='CASCADE', default="None")
     
+    
     def create(self):
         self.save()
 

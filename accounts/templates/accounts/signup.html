@@ -1,6 +1,17 @@
-Signup
+{% extends 'updates/base.html' %}
+
+
+
+{% load crispy_forms_tags %}
+        {% block content %}
+
+<div class="m-2">
+        <h4>Signup</h4>
+        </div>
 <form class="site-form" action="/accounts/signup/" method="post">
     {% csrf_token %}
-    {{ form.as_p }}  
-<input type="submit" value="Signup">
+    {{ form|crispy }}  
+<input type="submit" value="Signup" class="btn btn-success">
 </form>
+
+{% endblock %}
